@@ -19,6 +19,24 @@ calculate_stats <- function(x) {
   return(stats)
 }
 
+
+calculate_stats_by_group <- function(df, x, group) {
+  stats <- df %>%
+    group_by(df$group) %>%
+    summarize(mean = mean(x),
+              median = median(x),
+              sd = sd(x),
+              var = var(x),
+              min = min(x),
+              max = max(x),
+              range = max(x) - min(x),
+    )
+  
+  # Return the statistics
+  return(stats)
+}
+
+
 # Function to calculate the IQR and outliers of a vector
 calculate_iqr <- function(x) {
   # Calculate the 25th and 75th quantiles of the vector
