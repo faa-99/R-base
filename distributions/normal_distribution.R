@@ -66,3 +66,4 @@ one_sample_z_test <- function(x, mean, sd, sample_size, confidence) {
   return(list(z_score = z_score, p_value = p_value,
               confidence_interval = c(lower_bound, upper_bound)))
 }
+
